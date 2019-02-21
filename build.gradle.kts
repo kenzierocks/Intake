@@ -29,7 +29,6 @@ subprojects {
     repositories {
         maven { url = uri("http://maven.sk89q.com/repo/") }
         mavenCentral()
-        maven { url = uri("http://repo.maven.apache.org/maven2") }
     }
 
     val sourcesJar = tasks.register<Jar>("sourcesJar") {
