@@ -1,7 +1,5 @@
 plugins {
     java
-    maven
-    checkstyle
 }
 
 dependencies {

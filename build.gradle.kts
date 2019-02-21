@@ -1,5 +1,8 @@
+import net.minecrell.gradle.licenser.LicenseExtension
+
 plugins {
     id("com.jfrog.artifactory") version "4.9.3" apply false
+    id("net.minecrell.licenser") version "0.4.1" apply false
 }
 
 if (!project.hasProperty("artifactory_contextUrl"))
@@ -14,11 +17,17 @@ subprojects {
     apply(plugin = "maven")
     apply(plugin = "checkstyle")
     apply(plugin = "com.jfrog.artifactory")
+    apply(plugin = "net.minecrell.licenser")
     group = "com.sk89q.intake"
     version = "4.2-SNAPSHOT"
 
     configure<CheckstyleExtension> {
         configFile = rootProject.projectDir.resolve("config/checkstyle/checkstyle.xml")
+    }
+
+    configure<LicenseExtension> {
+        header = rootProject.file("HEADER.txt")
+        include("**/*.java")
     }
 
     configure<JavaPluginConvention> {
