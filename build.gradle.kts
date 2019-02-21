@@ -34,7 +34,7 @@ subprojects {
     val sourcesJar = tasks.register<Jar>("sourcesJar") {
         dependsOn("classes")
         archiveClassifier.set("sources")
-        from(project.the<JavaPluginConvention>().sourceSets.get("main").allSource)
+        from(project.the<JavaPluginConvention>().sourceSets["main"].allSource)
     }
 
     val javadocJar = tasks.register<Jar>("javadocJar") {
